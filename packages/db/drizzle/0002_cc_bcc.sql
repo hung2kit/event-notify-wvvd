@@ -1,0 +1,2 @@
+ALTER TABLE "announcements" ADD COLUMN "cc_emails" text[] DEFAULT '{}'::text[] NOT NULL;--> statement-breakpoint
+ALTER TABLE "announcements" ADD COLUMN "bcc_emails" text[] DEFAULT '{}'::text[] NOT NULL;

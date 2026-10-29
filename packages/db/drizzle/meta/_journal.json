@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1793083691411,
+      "tag": "0000_square_cargill",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1793156239159,
+      "tag": "0001_recipient_emails",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793157582553,
+      "tag": "0002_cc_bcc",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1793177077020,
+      "tag": "0003_delivery_error_detail",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1793177477103,
+      "tag": "0004_delivery_retry",
+      "breakpoints": true
+    }
+  ]
+}

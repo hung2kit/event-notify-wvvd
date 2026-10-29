@@ -1,0 +1,30 @@
+{
+  "name": "@phat-tin/worker",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "lint": "eslint src",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@phat-tin/db": "workspace:*",
+    "@phat-tin/shared": "workspace:*",
+    "drizzle-orm": "^0.44.6",
+    "nodemailer": "^7.0.9",
+    "pg": "^8.16.3",
+    "pg-boss": "^10.3.2",
+    "pino": "^9.11.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.12",
+    "@types/nodemailer": "^7.0.2",
+    "@types/pg": "^8.15.5",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

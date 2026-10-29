@@ -1,0 +1,30 @@
+{
+  "name": "phat-tin",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @phat-tin/api --filter @phat-tin/worker --filter @phat-tin/web --parallel dev",
+    "build": "pnpm -r --if-present build",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "db:generate": "pnpm --filter @phat-tin/db generate",
+    "db:migrate": "pnpm --filter @phat-tin/db migrate",
+    "db:seed": "pnpm --filter @phat-tin/db seed",
+    "e2e:serve": "pnpm --filter @phat-tin/db exec tsx src/e2e-serve.ts",
+    "e2e": "playwright test",
+    "test": "pnpm --filter @phat-tin/shared test && pnpm --filter @phat-tin/worker test && pnpm --filter @phat-tin/api test"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.64.1",
+    "eslint": "^9.39.1",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2"
+  }
+}

@@ -1,0 +1,89 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: phattin
+      POSTGRES_PASSWORD: phattin
+      POSTGRES_DB: phattin
+    ports:
+      - '5433:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U phattin -d phattin']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  mailpit:
+    image: axllent/mailpit:v1.27
+    ports:
+      - '1025:1025'
+      - '8025:8025'
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    environment:
+      DATABASE_URL: postgres://phattin:phattin@postgres:5432/phattin
+      APP_TIMEZONE: Asia/Ho_Chi_Minh
+      AUTH_MODE: dev
+      DEV_USER_EMAIL: son_le_quoc_hung@wvi.org
+      MAIL_TRANSPORT: smtp
+      MAIL_FROM_ADDRESS: phat-tin@worldvision.org.vn
+      MAIL_FROM_NAME: Event Notify
+      MAIL_USE_BCC: 'false'
+      SMTP_HOST: mailpit
+      SMTP_PORT: '1025'
+      SMTP_SECURE: 'false'
+      MISSED_SEND_GRACE_MINUTES: '60'
+      SCHEDULER_INTERVAL_SECONDS: '30'
+      WEB_ORIGIN: http://localhost:5173
+      API_PORT: '3000'
+      LOG_LEVEL: info
+      SEED_ON_BOOT: 'true'
+    ports:
+      - '3000:3000'
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  worker:
+    build:
+      context: .
+      dockerfile: apps/worker/Dockerfile
+    environment:
+      DATABASE_URL: postgres://phattin:phattin@postgres:5432/phattin
+      APP_TIMEZONE: Asia/Ho_Chi_Minh
+      SCHEDULER_INTERVAL_SECONDS: '30'
+      MISSED_SEND_GRACE_MINUTES: '60'
+      MAIL_TRANSPORT: smtp
+      MAIL_FROM_ADDRESS: phat-tin@worldvision.org.vn
+      MAIL_FROM_NAME: Event Notify
+      MAIL_USE_BCC: 'false'
+      SMTP_HOST: mailpit
+      SMTP_PORT: '1025'
+      SMTP_SECURE: 'false'
+      LOG_LEVEL: info
+    depends_on:
+      postgres:
+        condition: service_healthy
+      mailpit:
+        condition: service_started
+      api:
+        condition: service_started
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    environment:
+      VITE_API_PROXY: http://api:3000
+    ports:
+      - '5173:5173'
+    depends_on:
+      - api
+
+volumes:
+  pgdata:

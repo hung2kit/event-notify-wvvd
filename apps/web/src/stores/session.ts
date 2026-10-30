@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 
-const LOGGED_OUT = 'phat-tin-logged-out';
-export const DEV_EMAIL_KEY = 'phat-tin-dev-email';
+const LOGGED_OUT = 'event-notify-logged-out';
+export const DEV_EMAIL_KEY = 'event-notify-dev-email';
 
 export const useSessionStore = defineStore('session', {
   state: () => ({

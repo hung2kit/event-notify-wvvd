@@ -1,4 +1,4 @@
-import { describeMailError, extractInlineImages, type MailErrorDetail } from '@phat-tin/shared';
+import { describeMailError, extractInlineImages, type MailErrorDetail } from '@event-notify/shared';
 import nodemailer from 'nodemailer';
 import type { WorkerEnv } from './env.js';
 

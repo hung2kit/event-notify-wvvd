@@ -1,5 +1,5 @@
 {
-  "name": "@phat-tin/web",
+  "name": "@event-notify/web",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,7 @@
     "preview": "vite preview --host 0.0.0.0 --port 5173"
   },
   "dependencies": {
-    "@phat-tin/shared": "workspace:^",
+    "@event-notify/shared": "workspace:^",
     "@tabler/icons-vue": "^3.49.0",
     "@tanstack/vue-query": "^5.105.0",
     "@tiptap/extension-image": "^3.32.0",

@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
-import { announcements, deliveries } from '@phat-tin/db';
-import { FREQUENCIES, nextRunAt, type Frequency, type ScheduleInput } from '@phat-tin/shared';
+import { announcements, deliveries } from '@event-notify/db';
+import { FREQUENCIES, nextRunAt, type Frequency, type ScheduleInput } from '@event-notify/shared';
 import { and, eq, isNull, lte } from 'drizzle-orm';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import type PgBoss from 'pg-boss';

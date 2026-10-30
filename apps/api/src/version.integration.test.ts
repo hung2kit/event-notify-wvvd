@@ -1,5 +1,5 @@
-import { SEED_IDS, createDatabase, loadRootEnv, seedDatabase } from '@phat-tin/db';
-import { prepareTestDatabase } from '@phat-tin/db/test-db';
+import { SEED_IDS, createDatabase, loadRootEnv, seedDatabase } from '@event-notify/db';
+import { prepareTestDatabase } from '@event-notify/db/test-db';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { buildApp } from './app.js';
 import { readApiEnv } from './env.js';

@@ -1,5 +1,5 @@
 {
-  "name": "phat-tin",
+  "name": "event-notify",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@9.15.9",
@@ -7,17 +7,17 @@
     "node": ">=22"
   },
   "scripts": {
-    "dev": "pnpm --filter @phat-tin/api --filter @phat-tin/worker --filter @phat-tin/web --parallel dev",
+    "dev": "pnpm --filter @event-notify/api --filter @event-notify/worker --filter @event-notify/web --parallel dev",
     "build": "pnpm -r --if-present build",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "db:generate": "pnpm --filter @phat-tin/db generate",
-    "db:migrate": "pnpm --filter @phat-tin/db migrate",
-    "db:seed": "pnpm --filter @phat-tin/db seed",
-    "e2e:serve": "pnpm --filter @phat-tin/db exec tsx src/e2e-serve.ts",
+    "db:generate": "pnpm --filter @event-notify/db generate",
+    "db:migrate": "pnpm --filter @event-notify/db migrate",
+    "db:seed": "pnpm --filter @event-notify/db seed",
+    "e2e:serve": "pnpm --filter @event-notify/db exec tsx src/e2e-serve.ts",
     "e2e": "playwright test",
-    "test": "pnpm --filter @phat-tin/shared test && pnpm --filter @phat-tin/worker test && pnpm --filter @phat-tin/api test"
+    "test": "pnpm --filter @event-notify/shared test && pnpm --filter @event-notify/worker test && pnpm --filter @event-notify/api test"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

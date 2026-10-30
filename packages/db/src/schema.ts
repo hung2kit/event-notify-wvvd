@@ -1,4 +1,4 @@
-import type { DeliveryErrorDetail } from '@phat-tin/shared';
+import type { DeliveryErrorDetail } from '@event-notify/shared';
 import { relations, sql } from 'drizzle-orm';
 import {
   type AnyPgColumn,

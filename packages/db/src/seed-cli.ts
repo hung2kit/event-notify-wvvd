@@ -1,4 +1,4 @@
-import { createDatabase, loadRootEnv, seedDatabase } from '@phat-tin/db';
+import { createDatabase, loadRootEnv, seedDatabase } from '@event-notify/db';
 
 loadRootEnv();
 

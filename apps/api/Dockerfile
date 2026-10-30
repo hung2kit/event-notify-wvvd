@@ -4,4 +4,4 @@ WORKDIR /repo
 COPY . .
 RUN pnpm install --frozen-lockfile
 EXPOSE 3000
-CMD ["pnpm", "--filter", "@phat-tin/api", "start"]
+CMD ["pnpm", "--filter", "@event-notify/api", "start"]

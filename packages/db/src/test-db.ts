@@ -7,7 +7,7 @@ import { createDatabase } from './client.js';
 /** Isolated database so worker tests do not send the schedules in the dev database. */
 export function testDatabaseUrl(baseUrl: string): string {
   const url = new URL(baseUrl);
-  url.pathname = '/phattin_test';
+  url.pathname = '/eventnotify_test';
   return url.toString();
 }
 
@@ -15,10 +15,10 @@ export async function prepareTestDatabase(baseUrl: string): Promise<string> {
   const admin = new pg.Client({ connectionString: baseUrl });
   await admin.connect();
   const existing = await admin.query('select 1 from pg_database where datname = $1', [
-    'phattin_test',
+    'eventnotify_test',
   ]);
   if (existing.rowCount === 0) {
-    await admin.query('create database phattin_test');
+    await admin.query('create database eventnotify_test');
   }
   await admin.end();
 

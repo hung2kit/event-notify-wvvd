@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { announcementWriteSchema, type Frequency } from '@phat-tin/shared/schema';
+import { announcementWriteSchema, type Frequency } from '@event-notify/shared/schema';
 import { IconLoader2, IconSend, IconTrash, IconX } from '@tabler/icons-vue';
 import { useMutation, useQueryClient } from '@tanstack/vue-query';
 import { useForm } from 'vee-validate';

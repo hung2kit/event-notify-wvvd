@@ -1,4 +1,4 @@
-import { describeMailError, extractInlineImages } from '@phat-tin/shared';
+import { describeMailError, extractInlineImages } from '@event-notify/shared';
 import nodemailer from 'nodemailer';
 import type { ApiEnv } from './env.js';
 import { HttpError } from './http.js';

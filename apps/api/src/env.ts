@@ -15,7 +15,7 @@ const schema = z.object({
   AUTH_MODE: z.enum(['dev', 'entra']).default('dev'),
   DEV_USER_EMAIL: z.string().email().default('son_le_quoc_hung@wvi.org'),
   MAIL_TRANSPORT: z.enum(['graph', 'smtp']).default('smtp'),
-  MAIL_FROM_ADDRESS: z.string().email().default('phat-tin@worldvision.org.vn'),
+  MAIL_FROM_ADDRESS: z.string().email().default('event-notify@worldvision.org.vn'),
   MAIL_FROM_NAME: z.string().min(1).default('Event Notify'),
   MAIL_USE_BCC: flag,
   SMTP_HOST: z.string().min(1).default('localhost'),

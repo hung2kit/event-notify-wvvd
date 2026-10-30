@@ -5,6 +5,7 @@ export default defineConfig({
   out: './drizzle',
   dialect: 'postgresql',
   dbCredentials: {
-    url: process.env.DATABASE_URL ?? 'postgres://phattin:phattin@localhost:5433/phattin',
+    url:
+      process.env.DATABASE_URL ?? 'postgres://eventnotify:eventnotify@localhost:5433/eventnotify',
   },
 });

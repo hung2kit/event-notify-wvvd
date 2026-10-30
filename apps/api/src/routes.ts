@@ -1,4 +1,4 @@
-import { createDatabase, users } from '@phat-tin/db';
+import { createDatabase, users } from '@event-notify/db';
 import {
   announcementListQuerySchema,
   deliveryListQuerySchema,
@@ -7,7 +7,7 @@ import {
   upcomingOccurrences,
   announcementUpdateSchema,
   announcementWriteSchema,
-} from '@phat-tin/shared';
+} from '@event-notify/shared';
 import type { FastifyInstance } from 'fastify';
 import { z } from 'zod';
 import { type Actor } from './auth.js';

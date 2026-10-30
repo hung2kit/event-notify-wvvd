@@ -5,7 +5,7 @@ import {
   deliveries,
   recipientGroups,
   type AppDatabase,
-} from '@phat-tin/db';
+} from '@event-notify/db';
 import {
   APP_TIMEZONE,
   RETRY_CHANNEL,
@@ -16,7 +16,7 @@ import {
   type AnnouncementWrite,
   type DeliveryListQuery,
   type Frequency,
-} from '@phat-tin/shared';
+} from '@event-notify/shared';
 import { and, desc, eq, gte, inArray, isNull, lt, sql } from 'drizzle-orm';
 import type { Actor } from './auth.js';
 import { assertCanEdit, assertCanWrite } from './auth.js';

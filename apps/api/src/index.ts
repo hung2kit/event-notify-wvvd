@@ -1,4 +1,4 @@
-import { createDatabase, loadRootEnv, seedDatabase } from '@phat-tin/db';
+import { createDatabase, loadRootEnv, seedDatabase } from '@event-notify/db';
 import { migrate } from 'drizzle-orm/node-postgres/migrator';
 import { createRequire } from 'node:module';
 import path from 'node:path';
@@ -10,7 +10,10 @@ loadRootEnv();
 const env = readApiEnv();
 const database = createDatabase(env.DATABASE_URL);
 const require = createRequire(import.meta.url);
-const migrationsFolder = path.resolve(path.dirname(require.resolve('@phat-tin/db')), '../drizzle');
+const migrationsFolder = path.resolve(
+  path.dirname(require.resolve('@event-notify/db')),
+  '../drizzle',
+);
 
 await migrate(database.db, { migrationsFolder });
 

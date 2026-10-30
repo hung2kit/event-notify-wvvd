@@ -29,6 +29,12 @@ importers:
 
   apps/api:
     dependencies:
+      '@event-notify/db':
+        specifier: workspace:*
+        version: link:../../packages/db
+      '@event-notify/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       '@fastify/cors':
         specifier: ^11.1.0
         version: 11.3.1
@@ -38,12 +44,6 @@ importers:
       '@fastify/rate-limit':
         specifier: ^10.3.0
         version: 10.3.0
-      '@phat-tin/db':
-        specifier: workspace:*
-        version: link:../../packages/db
-      '@phat-tin/shared':
-        specifier: workspace:*
-        version: link:../../packages/shared
       drizzle-orm:
         specifier: ^0.44.6
         version: 0.44.7(@types/pg@8.23.1)(pg@8.23.1)
@@ -84,7 +84,7 @@ importers:
 
   apps/web:
     dependencies:
-      '@phat-tin/shared':
+      '@event-notify/shared':
         specifier: workspace:^
         version: link:../../packages/shared
       '@tabler/icons-vue':
@@ -151,10 +151,10 @@ importers:
 
   apps/worker:
     dependencies:
-      '@phat-tin/db':
+      '@event-notify/db':
         specifier: workspace:*
         version: link:../../packages/db
-      '@phat-tin/shared':
+      '@event-notify/shared':
         specifier: workspace:*
         version: link:../../packages/shared
       drizzle-orm:
@@ -197,7 +197,7 @@ importers:
 
   packages/db:
     dependencies:
-      '@phat-tin/shared':
+      '@event-notify/shared':
         specifier: workspace:*
         version: link:../shared
       drizzle-orm:

@@ -1,5 +1,5 @@
 {
-  "name": "@phat-tin/worker",
+  "name": "@event-notify/worker",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -10,8 +10,8 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@phat-tin/db": "workspace:*",
-    "@phat-tin/shared": "workspace:*",
+    "@event-notify/db": "workspace:*",
+    "@event-notify/shared": "workspace:*",
     "drizzle-orm": "^0.44.6",
     "nodemailer": "^7.0.9",
     "pg": "^8.16.3",

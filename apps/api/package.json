@@ -1,5 +1,5 @@
 {
-  "name": "@phat-tin/api",
+  "name": "@event-notify/api",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -13,8 +13,8 @@
     "@fastify/cors": "^11.1.0",
     "@fastify/helmet": "^13.0.2",
     "@fastify/rate-limit": "^10.3.0",
-    "@phat-tin/db": "workspace:*",
-    "@phat-tin/shared": "workspace:*",
+    "@event-notify/db": "workspace:*",
+    "@event-notify/shared": "workspace:*",
     "drizzle-orm": "^0.44.6",
     "fastify": "^5.6.1",
     "html-to-text": "^9.0.5",

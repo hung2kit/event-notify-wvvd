@@ -1,4 +1,4 @@
-import type { Frequency } from '@phat-tin/shared/schema';
+import type { Frequency } from '@event-notify/shared/schema';
 
 export type User = {
   id: string;

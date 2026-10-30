@@ -7,8 +7,8 @@ import {
   loadRootEnv,
   recipientGroups,
   users,
-} from '@phat-tin/db';
-import { prepareTestDatabase, resetTestData } from '@phat-tin/db/test-db';
+} from '@event-notify/db';
+import { prepareTestDatabase, resetTestData } from '@event-notify/db/test-db';
 import { eq } from 'drizzle-orm';
 import PgBoss from 'pg-boss';
 import pino from 'pino';
@@ -103,7 +103,7 @@ describe('delivery', () => {
         pool: database.pool,
         transport: smtpTransport(),
         useBcc: false,
-        fromAddress: 'phat-tin@worldvision.org.vn',
+        fromAddress: 'event-notify@worldvision.org.vn',
         logger,
         job: {
           id: job.id,
@@ -155,7 +155,7 @@ describe('delivery', () => {
       pool: database.pool,
       transport: failingTransport(),
       useBcc: false,
-      fromAddress: 'phat-tin@worldvision.org.vn',
+      fromAddress: 'event-notify@worldvision.org.vn',
       logger,
       job: {
         id: job!.id,
@@ -210,7 +210,7 @@ describe('delivery', () => {
           pool: database.pool,
           transport,
           useBcc: false,
-          fromAddress: 'phat-tin@worldvision.org.vn',
+          fromAddress: 'event-notify@worldvision.org.vn',
           logger,
           job: {
             id: job.id,
@@ -254,7 +254,7 @@ describe('delivery', () => {
         async close() {},
       },
       useBcc: false,
-      fromAddress: 'phat-tin@worldvision.org.vn',
+      fromAddress: 'event-notify@worldvision.org.vn',
       logger,
       job: {
         id: jobs[0]!.id,
@@ -301,7 +301,7 @@ describe('delivery', () => {
         async close() {},
       },
       useBcc: false,
-      fromAddress: 'phat-tin@worldvision.org.vn',
+      fromAddress: 'event-notify@worldvision.org.vn',
       logger,
       job: {
         id: jobs[0]!.id,
@@ -350,7 +350,7 @@ describe('delivery', () => {
         async close() {},
       },
       useBcc: false,
-      fromAddress: 'phat-tin@worldvision.org.vn',
+      fromAddress: 'event-notify@worldvision.org.vn',
       logger,
       job: {
         id: jobs[0]!.id,
@@ -428,7 +428,7 @@ describe('delivery', () => {
         async close() {},
       },
       useBcc: false,
-      fromAddress: 'phat-tin@worldvision.org.vn',
+      fromAddress: 'event-notify@worldvision.org.vn',
       logger,
       job: {
         id: jobs[0]!.id,
@@ -472,7 +472,7 @@ describe('delivery', () => {
         async close() {},
       },
       useBcc: false,
-      fromAddress: 'phat-tin@worldvision.org.vn',
+      fromAddress: 'event-notify@worldvision.org.vn',
       logger,
       job: {
         id: jobs[0]!.id,
@@ -536,7 +536,7 @@ describe('delivery', () => {
         async close() {},
       },
       useBcc: false,
-      fromAddress: 'phat-tin@worldvision.org.vn',
+      fromAddress: 'event-notify@worldvision.org.vn',
       logger,
       job: {
         id: jobs[0]!.id,
@@ -592,7 +592,7 @@ function smtpTransport(): MailTransport {
       });
       try {
         const info = await transport.sendMail({
-          from: 'phat-tin@worldvision.org.vn',
+          from: 'event-notify@worldvision.org.vn',
           to: message.to,
           bcc: message.bcc,
           subject: message.subject,

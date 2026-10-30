@@ -4,7 +4,12 @@ import { computed } from 'vue';
 import { api } from '../api';
 import GroupGrid from '../components/GroupGrid.vue';
 
-const { data: groups, isLoading, isError, refetch } = useQuery({
+const {
+  data: groups,
+  isLoading,
+  isError,
+  refetch,
+} = useQuery({
   queryKey: ['groups'],
   queryFn: async () => (await api.groups()).groups,
 });

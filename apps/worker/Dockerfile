@@ -3,4 +3,4 @@ RUN corepack enable
 WORKDIR /repo
 COPY . .
 RUN pnpm install --frozen-lockfile
-CMD ["pnpm", "--filter", "@phat-tin/worker", "start"]
+CMD ["pnpm", "--filter", "@event-notify/worker", "start"]

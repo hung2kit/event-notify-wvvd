@@ -5,7 +5,7 @@ import pg from 'pg';
 import { loadRootEnv } from './load-env.js';
 
 /**
- * Starts an API, worker, and Vite that talk to Mailpit and database `phattin_e2e`.
+ * Starts an API, worker, and Vite that talk to Mailpit and database `eventnotify_e2e`.
  * Process env is set before the apps load `.env`, so the Outlook password is not used.
  */
 loadRootEnv();
@@ -18,7 +18,7 @@ if (!baseUrl) {
 }
 
 const databaseUrl = new URL(baseUrl);
-databaseUrl.pathname = '/phattin_e2e';
+databaseUrl.pathname = '/eventnotify_e2e';
 const e2eUrl = databaseUrl.toString();
 
 const childEnv: NodeJS.ProcessEnv = {
@@ -36,7 +36,7 @@ const childEnv: NodeJS.ProcessEnv = {
   SMTP_REQUIRE_TLS: 'false',
   SMTP_USER: '',
   SMTP_PASS: '',
-  MAIL_FROM_ADDRESS: 'phat-tin@example.com',
+  MAIL_FROM_ADDRESS: 'event-notify@example.com',
   MAIL_FROM_NAME: 'Event Notify',
   MAIL_USE_BCC: 'false',
   VITE_API_PROXY: 'http://127.0.0.1:3100',
@@ -91,9 +91,9 @@ async function prepareDatabase(): Promise<void> {
     throw new Error('Không kết nối được Postgres. Hãy chạy docker compose up -d postgres.');
   }
   const existing = await admin.query('select 1 from pg_database where datname = $1', [
-    'phattin_e2e',
+    'eventnotify_e2e',
   ]);
-  if (existing.rowCount === 0) await admin.query('create database phattin_e2e');
+  if (existing.rowCount === 0) await admin.query('create database eventnotify_e2e');
   await admin.end();
 }
 
@@ -120,17 +120,17 @@ process.on('SIGINT', () => stop(0));
 try {
   await prepareDatabase();
   console.log('e2e api http://127.0.0.1:3100');
-  start(['--filter', '@phat-tin/api', 'start']);
+  start(['--filter', '@event-notify/api', 'start']);
   // /health stays down until the worker creates the pg-boss schema.
   await waitFor('http://127.0.0.1:3100/api/me');
   await clearSchedules();
   console.log('e2e worker smtp 127.0.0.1:1025');
-  start(['--filter', '@phat-tin/worker', 'start']);
+  start(['--filter', '@event-notify/worker', 'start']);
   await waitFor('http://127.0.0.1:3100/health/worker');
   console.log('e2e web http://127.0.0.1:4173');
   start([
     '--filter',
-    '@phat-tin/web',
+    '@event-notify/web',
     'exec',
     '--',
     'vite',

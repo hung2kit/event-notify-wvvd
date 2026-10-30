@@ -73,13 +73,13 @@ export async function seedDatabase(db: AppDatabase): Promise<void> {
     },
     {
       id: SEED_IDS.editor,
-      email: 'lan.editor@phat-tin.local',
+      email: 'lan.editor@event-notify.local',
       displayName: 'Lan',
       role: 'editor',
     },
     {
       id: SEED_IDS.viewer,
-      email: 'minh.viewer@phat-tin.local',
+      email: 'minh.viewer@event-notify.local',
       displayName: 'Minh',
       role: 'viewer',
     },

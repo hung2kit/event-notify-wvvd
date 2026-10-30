@@ -4,8 +4,12 @@ import {
   deliveries,
   recipientGroups,
   type AppDatabase,
-} from '@phat-tin/db';
-import { appendAttemptError, describeMailError, type DeliveryErrorDetail } from '@phat-tin/shared';
+} from '@event-notify/db';
+import {
+  appendAttemptError,
+  describeMailError,
+  type DeliveryErrorDetail,
+} from '@event-notify/shared';
 import { and, eq, isNull, sql } from 'drizzle-orm';
 import type pg from 'pg';
 import type { WorkerLog } from './log.js';

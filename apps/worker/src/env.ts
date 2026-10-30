@@ -11,7 +11,7 @@ const schema = z.object({
   SCHEDULER_INTERVAL_SECONDS: z.coerce.number().int().positive().default(30),
   MISSED_SEND_GRACE_MINUTES: z.coerce.number().int().nonnegative().default(60),
   MAIL_TRANSPORT: z.enum(['graph', 'smtp']).default('smtp'),
-  MAIL_FROM_ADDRESS: z.string().email().default('phat-tin@worldvision.org.vn'),
+  MAIL_FROM_ADDRESS: z.string().email().default('event-notify@worldvision.org.vn'),
   MAIL_FROM_NAME: z.string().min(1).default('Event Notify'),
   MAIL_USE_BCC: flag,
   SMTP_HOST: z.string().min(1).default('127.0.0.1'),

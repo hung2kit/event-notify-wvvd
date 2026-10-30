@@ -1,5 +1,5 @@
 import { toZonedTime } from 'date-fns-tz';
-import type { Frequency } from '@phat-tin/shared/schema';
+import type { Frequency } from '@event-notify/shared/schema';
 
 export const ZONE = 'Asia/Ho_Chi_Minh';
 const WEEKDAYS = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];

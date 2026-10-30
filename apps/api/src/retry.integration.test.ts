@@ -5,8 +5,8 @@ import {
   loadRootEnv,
   seedDatabase,
   auditLog,
-} from '@phat-tin/db';
-import { prepareTestDatabase } from '@phat-tin/db/test-db';
+} from '@event-notify/db';
+import { prepareTestDatabase } from '@event-notify/db/test-db';
 import { eq } from 'drizzle-orm';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { buildApp } from './app.js';
@@ -119,7 +119,7 @@ describe('manual resend', () => {
     const response = await app.inject({
       method: 'POST',
       url: `/api/deliveries/${failedId}/retry`,
-      headers: { 'x-dev-user-email': 'minh.viewer@phat-tin.local' },
+      headers: { 'x-dev-user-email': 'minh.viewer@event-notify.local' },
     });
     expect(response.statusCode).toBe(403);
   });

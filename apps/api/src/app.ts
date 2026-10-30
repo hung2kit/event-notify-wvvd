@@ -1,8 +1,12 @@
 import cors from '@fastify/cors';
 import helmet from '@fastify/helmet';
 import rateLimit from '@fastify/rate-limit';
-import { checkDatabase, checkQueue, createDatabase, readSchedulerTick } from '@phat-tin/db';
-import { WORKER_TICK_STALE_MS, type HealthReport, type WorkerHealthReport } from '@phat-tin/shared';
+import { checkDatabase, checkQueue, createDatabase, readSchedulerTick } from '@event-notify/db';
+import {
+  WORKER_TICK_STALE_MS,
+  type HealthReport,
+  type WorkerHealthReport,
+} from '@event-notify/shared';
 import Fastify, { type FastifyInstance } from 'fastify';
 import { currentUser } from './auth.js';
 import type { ApiEnv } from './env.js';

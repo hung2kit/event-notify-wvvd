@@ -63,7 +63,7 @@ Lần đầu mất vài phút để build. Bảng dữ liệu được tạo t�
 Tạo tài khoản quản trị và các nhóm nhận:
 
 ```bash
-docker compose -f docker-compose.prod.yml exec api pnpm --filter @phat-tin/db seed
+docker compose -f docker-compose.prod.yml exec api pnpm --filter @event-notify/db seed
 ```
 
 Không chạy lại lệnh này về sau, vì nó đặt lại thông tin các nhóm nhận về mặc định.

@@ -1,5 +1,5 @@
-import { createDatabase, loadRootEnv, recordSchedulerTick } from '@phat-tin/db';
-import { RETRY_CHANNEL } from '@phat-tin/shared';
+import { createDatabase, loadRootEnv, recordSchedulerTick } from '@event-notify/db';
+import { RETRY_CHANNEL } from '@event-notify/shared';
 import pg from 'pg';
 import PgBoss from 'pg-boss';
 import pino from 'pino';

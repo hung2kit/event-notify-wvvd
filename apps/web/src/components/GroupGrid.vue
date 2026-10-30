@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { IconBuilding, IconMap2, IconMapPin, IconReportMoney, IconSpeakerphone, IconUsers } from '@tabler/icons-vue';
+import {
+  IconBuilding,
+  IconMap2,
+  IconMapPin,
+  IconReportMoney,
+  IconSpeakerphone,
+  IconUsers,
+} from '@tabler/icons-vue';
 import type { Component } from 'vue';
 import type { Announcement, Group } from '../types';
 

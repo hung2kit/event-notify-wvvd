@@ -22,7 +22,7 @@ export function extractInlineImages(html: string): {
     const cleaned = String(base64).replace(/\s+/g, '');
     if (!cleaned) return `${before}${_src}${after}`;
     index += 1;
-    const cid = `img${index}@phat-tin.local`;
+    const cid = `img${index}@event-notify.local`;
     attachments.push({
       cid,
       filename: `image-${index}.${extensionFor(mime)}`,

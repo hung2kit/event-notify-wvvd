@@ -2,7 +2,7 @@
 export const APP_TIMEZONE = 'Asia/Ho_Chi_Minh';
 
 /** Postgres NOTIFY channel the API uses to wake the worker after a manual resend. */
-export const RETRY_CHANNEL = 'phat_tin_retry';
+export const RETRY_CHANNEL = 'event_notify_retry';
 
 /** GET /health/worker is stale when the last scheduler tick is older than this. */
 export const WORKER_TICK_STALE_MS = 2 * 60 * 1000;

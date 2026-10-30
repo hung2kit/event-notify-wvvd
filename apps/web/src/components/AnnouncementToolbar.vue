@@ -17,7 +17,12 @@ const filters = [
   <div class="toolbar">
     <div class="search">
       <IconSearch :size="18" />
-      <input v-model="query" class="input" type="search" placeholder="Tìm theo tiêu đề hoặc nhóm nhận" />
+      <input
+        v-model="query"
+        class="input"
+        type="search"
+        placeholder="Tìm theo tiêu đề hoặc nhóm nhận"
+      />
     </div>
     <div class="seg" role="group" aria-label="Lọc trạng thái">
       <button

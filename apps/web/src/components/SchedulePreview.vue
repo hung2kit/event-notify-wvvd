@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Frequency } from '@phat-tin/shared/schema';
+import type { Frequency } from '@event-notify/shared/schema';
 import { useQuery } from '@tanstack/vue-query';
 import { computed, ref, watch } from 'vue';
 import { api } from '../api';
@@ -17,7 +17,14 @@ const debounced = ref({ ...props });
 let timer: ReturnType<typeof setTimeout> | undefined;
 
 watch(
-  () => [props.startDate, props.startTime, props.frequency, props.untilDate, props.recipientCount] as const,
+  () =>
+    [
+      props.startDate,
+      props.startTime,
+      props.frequency,
+      props.untilDate,
+      props.recipientCount,
+    ] as const,
   () => {
     clearTimeout(timer);
     timer = setTimeout(() => {
@@ -27,17 +34,32 @@ watch(
   { immediate: true },
 );
 
-const enabled = computed(() => /^\d{4}-\d{2}-\d{2}$/.test(debounced.value.startDate) && /^\d{2}:\d{2}$/.test(debounced.value.startTime));
+const enabled = computed(
+  () =>
+    /^\d{4}-\d{2}-\d{2}$/.test(debounced.value.startDate) &&
+    /^\d{2}:\d{2}$/.test(debounced.value.startTime),
+);
 
-const { data: preview, isError, isFetching } = useQuery({
-  queryKey: computed(() => ['preview', debounced.value.startDate, debounced.value.startTime, debounced.value.frequency, debounced.value.untilDate]),
+const {
+  data: preview,
+  isError,
+  isFetching,
+} = useQuery({
+  queryKey: computed(() => [
+    'preview',
+    debounced.value.startDate,
+    debounced.value.startTime,
+    debounced.value.frequency,
+    debounced.value.untilDate,
+  ]),
   enabled,
   queryFn: () =>
     api.preview({
       start: debounced.value.startDate,
       time: debounced.value.startTime,
       frequency: debounced.value.frequency,
-      until: debounced.value.frequency === 'none' ? undefined : (debounced.value.untilDate ?? undefined),
+      until:
+        debounced.value.frequency === 'none' ? undefined : (debounced.value.untilDate ?? undefined),
     }),
 });
 
@@ -60,7 +82,9 @@ const rows = computed(() =>
           {{ row.date }} lúc {{ row.time }} <span class="muted">({{ row.relative }})</span>
         </li>
       </ol>
-      <div v-if="frequency !== 'none' && rows.length === 4" class="more">và tiếp tục theo chu kỳ…</div>
+      <div v-if="frequency !== 'none' && rows.length === 4" class="more">
+        và tiếp tục theo chu kỳ…
+      </div>
     </template>
     <span v-else-if="!isFetching" class="past">
       Thời điểm này đã qua nên email sẽ không được gửi. Chọn ngày khác.

@@ -1,4 +1,4 @@
-import { users, type AppDatabase } from '@phat-tin/db';
+import { users, type AppDatabase } from '@event-notify/db';
 import { eq } from 'drizzle-orm';
 import { z } from 'zod';
 import type { ApiEnv } from './env.js';
